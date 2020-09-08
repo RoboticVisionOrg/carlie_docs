@@ -1,4 +1,4 @@
-# NightRider Config and Calibration
+# Carlie Config and Calibration
 
 ## Config Parameters
 The platform comes with some default parameters which set aspects such as acceleration and velocity limits. Fortunately these can all be easily changed through a YAML config file. The config file is located at **insert config file location**. In this file the config parameters/values will be commented out. You will need to uncomment them to override the defaults (the defaults are located at **file location**). To change the file:
@@ -42,7 +42,7 @@ The following parameters should not need to be changed. They are merely broken o
 * **motor_ticks_per_revolution** - the number of motor ticks per single revolution.
 * **battery_voltage_offset** - the offset between the battery voltage measured by the VESC and the actual voltage due to voltage offsets caused by components such as diodes (this should be approximately constant); specified in volts.
 
-## Calibrating NightRider
+## Calibrating Carlie
 
 The main parameter you will need to calibrate is the center_steering_angle. The easiest way to calibrate the steering angle is as follows:
 

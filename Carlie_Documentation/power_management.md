@@ -1,35 +1,35 @@
-# NightRider Power Management
+# Carlie Power Management
 
 ## Batteries
-NightRider is powered using one or two 3-cell 5000mAh LiPo batteries. To plug in or replace a battery(s):
+Carlie is powered using one or two 3-cell 5000mAh LiPo batteries. To plug in or replace a battery(s):
 
 1. Lift up the shell
-2. Locate the two battery slots and their respective XT60 connector one the low level control board (white PCB). There is one battery slot/connector on either side of the vehicle.
+2. Locate the two battery slots and their respective XT60 connector one the low-level control board (white PCB). There is one battery slot/connector on either side of the vehicle.
 3. Plug in one or two 3-cell LiPo batteries. *Plug in one battery if you plan on doing an extended mission (experiments longer than 1.5 hours); see [Battery Hot Swapping](#battery-hot-swapping) for details*.
 4. Lower the shell, ensuring no cables or components are caught on the edge of the shell.
 
-**Safety Warning!** LiPo batteries can be a hazard when used incorrectly. While NightRider has features to prevent LiPo misuse (e.g. over-discharge), we still recommend batteries are removed when the vehicle is not in use.
+**Safety Warning!** LiPo batteries can be a hazard when used incorrectly. While Carlie has features to prevent LiPo misuse (e.g. over-discharge), we still recommend batteries are removed when the vehicle is not in use.
 
 **Safety Warning!:** LiPo batteries should always be stored in a LiPo safety bag when not in use or when being charged.
 
 **Note:** The approximate worst case run time for a single 3-cell 5000mAh battery is 2 hours.
 
-**Note:** NightRider will automatically power off all systems when the capacity of the batteries drops too low, preventing over-discharge. This power cut-off point occurs when all batteries are close to approximately 9 volts.
+**Note:** Carlie will automatically power off all systems when the capacity of the batteries drops too low, preventing over-discharge. This power cut-off point occurs when all batteries are close to approximately 9 volts.
 
 **Note:** The Vedder Electronic Speed Control (VESC), which controls linear movement, will prevent the motor from running when the voltage is below 10 volts approximately. However, the computer should still be able to be powered.
 
 ## Battery Hot Swapping
-The NightRider platform has been designed with battery hot swapping capabilities. This allows a fresh battery to be plugged in without shutting down the computer; giving NightRider the ability to undertake extended missions. To hot swap batteries:
+The Carlie platform has been designed with battery hot swapping capabilities. This allows a fresh battery to be plugged in without shutting down the computer; giving Carlie the ability to undertake extended missions. To hot swap batteries:
 
 1. Plug in a fresh LiPo battery into the empty battery slot. 
 2. Wait a second or two.
 3. Unplug the drained LiPo battery.
 4. You can now continue your experiment.
 
-**Tip:** If you plan on running a long duration mission we recommend you power NightRider using only a single LiPo battery. The reason for this is because NightRider cannot monitor the battery charge levels independently and drains the batteries concurrently not sequentially. Hence, you may accidentally unplug the battery that NightRider is currently using and cause a computer shutdown; as the other battery may be below system shutdown voltage.
+**Tip:** If you plan on running a long duration mission we recommend you power Carlie using only a single LiPo battery. The reason for this is because Carlie cannot monitor the battery charge levels independently and drains the batteries concurrently not sequentially. Hence, you may accidentally unplug the battery that Carlie is currently using and cause a computer shutdown; as the other battery may be below system shutdown voltage.
 
 ## Charging Batteries
-NightRider does not have any in situ battery charging capabilities. To charge the batteries you must first remove them from the platform and then use an external charger. The NightRider platform comes standard with an EV-Peak E4, or equivalent, battery charger as well as LiPo safety bags. To use this charger:
+Carlie does not have any in situ battery charging capabilities. To charge the batteries you must first remove them from the platform and then use an external charger. The Carlie platform comes standard with an EV-Peak E4, or equivalent, battery charger as well as LiPo safety bags. To use this charger:
 
 1. Turn on the EV-Peak E4 charger and wait until the blue LEDs turn on.
 2. Plug the balance cable, the one with the smaller white connector, of the battery into the appropriate port on the charger.
@@ -49,7 +49,7 @@ Flying with LiPo batteries is typically not difficult if you follow the rules. T
 
 **Important:** please double check with your local governing board for up to date rules.
 
-To get the Wh rating of your battery multiple the nominal voltage (number of cells multiplied by 3.7 volts) by the number of Amp-hours (in this case 5000 milli-Amp-hours). The batteries supplied with NightRider are 55.5 Wh and so there should be no issues with taking them on a plane.
+To get the Wh rating of your battery multiple the nominal voltage (number of cells multiplied by 3.7 volts) by the number of Amp-hours (in this case 5000 milli-Amp-hours). The batteries supplied with Carlie are 55.5 Wh and so there should be no issues with taking them on a plane.
 
 When flying with batteries you **MUST DO THE FOLLOWING:**
 

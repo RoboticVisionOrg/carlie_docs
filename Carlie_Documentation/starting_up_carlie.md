@@ -1,26 +1,26 @@
-# Starting Up and Driving NightRider
+# Starting Up and Driving Carlie
 
-## Turning On NightRider
-To turn on NightRider press the *on button* located on the shell. Pressing the on button provides power to all the various systems and automatically turns on the computer. After a short delay (1-2 minutes) the screen will turn on. The default username and password to the computer are both *nvidia*.
+## Turning On Carlie
+To turn on Carlie press the *on button* located on the shell. Pressing the on button provides power to all the various systems and automatically turns on the computer. After a short delay (1-2 minutes) the screen will turn on. The default username and password to the computer are both *nvidia*.
 
 As part of the start-up sequence the computer will automatically launch the following systems:
 
-* NightRider Base System - this is required to allow the computer to communicate with the low level hardware (motion control, IMU, GPS, short-range LIDAR sensors) as well as provides the tele-operation via the gamepad and the hassle-free switch between tele-operation and autonomous modes.
+* Carlie Base System - this is required to allow the computer to communicate with the low-level hardware (motion control, IMU, GPS, short-range LIDAR sensors) as well as provides the tele-operation via the gamepad and the hassle-free switch between tele-operation and autonomous modes.
 
-## Turning Off Nightrider
-To turn off NightRider we recommend you first shut down the computer in the usual fashion. Once the computer has shut down you can press the off button located on the shell. Pressing the off button disconnects power from all the systems.
+## Turning Off Carlie
+To turn off Carlie we recommend you first shut down the computer in the usual fashion. Once the computer has shut down you can press the off button located on the shell. Pressing the off button disconnects power from all the systems.
 
 **Note:** if you shut down the computer but forget to press the power button the power system will automatically power off if the battery goes too low. See the [Power Management](power_management.md) for more information.
 
-## Driving NightRider
-NightRider can be controlled in three different ways out-of-the-box. These three ways are:
+## Driving Carlie
+Carlie can be controlled in three different ways out-of-the-box. These three ways are:
 
 * Tele-operated via the Logitech F710 gamepad (default),
-* Tele-operated via the Traxxas RC Remote that came with the Traxxas Platform (which NightRider is built upon), or
+* Tele-operated via the Traxxas RC Remote that came with the Traxxas Platform (which Carlie is built upon), or
 * Autonomously via computer generated control commands.
 
 ### **Tele-Operation via Logitech F710 Gamepad**
-A minute or two after the computer has started up you should be able to drive NightRider using the Logitech Gamepad. The controls are as follows:
+A minute or two after the computer has started up you should be able to drive Carlie using the Logitech Gamepad. The controls are as follows:
 
 * Right Bumper - is a deadman switch. It must be pressed at all times when tele-operating the robot. Releasing it will stop the vehicle.
 * Right Joystick - is used to control the steering.
@@ -31,7 +31,7 @@ You may notice a slight left or right drift when trying to drive straight, pleas
 **Safety Warning!** We have noticed that the gamepad has a reliable range of about 5 metres. After 5 metres there is some extremely noticeable lag and dropout, and releasing of the deadman switch may not result in an immediate stop. If you wish to be further than 5 metres away from the vehicle while tele-operating we recommend using the RC remote instead.
 
 ### **Tele-Operation via Standard RC Remote**
-NightRider can also be operated via the standard RC Remote. While this method does allow for longer range operation, it does mean you cannot have additional capabilities tied to that remote (i.e. a deadman switch or a button to change states etc.). In order to control the platform using the RC Remote you will need to flick the switch that resides next to the Teensy on the Low Level Control Board (white PCB). To do this:
+Carlie can also be operated via the standard RC Remote. While this method does allow for longer range operation, it does mean you cannot have additional capabilities tied to that remote (i.e. a deadman switch or a button to change states etc.). In order to control the platform using the RC Remote you will need to flick the switch that resides next to the Teensy on the Low Level Control Board (white PCB). To do this:
 
 1. Lift up the lid of the platform.
 2. Locate the switch next to the Teensy. You will need to look in from the side.
@@ -99,7 +99,7 @@ The easiest way to calibrate the steering angle is as follows:
 1. Turn on the car and make sure it is in Logitech Tele-Operation mode.
 2. Manually drive the car forward a few metres and see if there is any left/right drift.
 3. If there is drift slightly alter the center_steering_angle parameter within the local config file (<file_location>). If it is steering left add(?) to this value, if right subtract(?) from it.
-4. You will need to restart the nightrider base package to update the parameter. This can be done by `pm2 restart nightrider_base`.
+4. You will need to restart the Carlie base package to update the parameter. This can be done by `pm2 restart nightrider_base`.
 5. Give the car 0.5-1 minute to restart the base and then repeat the process. You will most likely not be able to get a car that can drive perfectly straight over a long straight due to the fact the discritization of the angles the servo can physically achieve.
 
 The default pulse width RC remote parameters will do in most cases. However, we do recommend you calibrate them. To calibrate:
