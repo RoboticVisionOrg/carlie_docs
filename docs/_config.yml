@@ -2,7 +2,7 @@ title: Carlie Documentation (ACRV)
 lang: en
 description: Documentation and guides for Carlie, the mini-autonomous vehicle platform developed by the Australian Centre for Robotic Vision (ACRV)
 
-theme: jekyll-rtd-theme
+#remote_theme: jekyll-rtd-theme
 
 # baseurl: "/Carlie_Documentation"
 # url: "localhost:4000"
