@@ -54,7 +54,7 @@ At some point you will want to the car to perform some autonomous actions. We ha
 
 This should allow you to easily switch between tele-operation and autonomous modes and allow you to easily reset experiments. The HSV Blob Following Demo shows how you can generate autonomous control commands.
 
-**Note:** for ROS users what we have done is created an exclusive-or multiplexer using the left and right bumpers of the Logitech Gamepad which forwards either the */nightrider/ackermann_cmd/teleop* or */nightrider/ackermann_cmd/autonomous* down to the low level hardware via the */nightrider/ackemann_cmd* topic, depending on which bumper is currently held. All three messages are of type *AckermannDrive*. 
+**Note:** for ROS users what we have done is created an exclusive-or multiplexer using the left and right bumpers of the Logitech Gamepad which forwards either the */carlie/ackermann_cmd/teleop* or */carlie/ackermann_cmd/autonomous* down to the low level hardware via the */carlie/ackemann_cmd* topic, depending on which bumper is currently held. All three messages are of type *AckermannDrive*. 
 
 ## Config and Calibration
 The platform comes with some default parameters which set aspects such as acceleration and velocity limits. Fortunately these can all be easily changed through a YAML config file. The config file is located at **insert config file location**. In this file the config parameters/values will be commented out. You will need to uncomment them to override the defaults (the defaults are located at **file location**). To change the file:
@@ -103,7 +103,7 @@ The easiest way to calibrate the steering angle is as follows:
 1. Turn on the car and make sure it is in Logitech Tele-Operation mode.
 2. Manually drive the car forward a few metres and see if there is any left/right drift.
 3. If there is drift slightly alter the center_steering_angle parameter within the local config file (<file_location>). If it is steering left add(?) to this value, if right subtract(?) from it.
-4. You will need to restart the Carlie base package to update the parameter. This can be done by `pm2 restart nightrider_base`.
+4. You will need to restart the Carlie base package to update the parameter. This can be done by `pm2 restart carlie_base`.
 5. Give the car 0.5-1 minute to restart the base and then repeat the process. You will most likely not be able to get a car that can drive perfectly straight over a long straight due to the fact the discritization of the angles the servo can physically achieve.
 
 The default pulse width RC remote parameters will do in most cases. However, we do recommend you calibrate them. To calibrate:
