@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Carlie Documentation
+# Documentation
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}

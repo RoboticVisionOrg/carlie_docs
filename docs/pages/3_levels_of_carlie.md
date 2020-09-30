@@ -1,9 +1,9 @@
 ---
-sort: 7
+sort: 6
 ---
 
 # The 3 Levels of Carlie
-The Carlie platform exists of 3 levels in both its hardware and software design. These levels are:
+The Carlie platform consists of 3 levels in both its hardware and software design. These levels are:
 
 1. The low-level layer
 2. The base layer
@@ -25,14 +25,14 @@ The micro-controller acts as a ROS node and publishes and subscribes to the foll
 * The **/carlie/ackermann_cmd** topic - contains the control values to be performed, such as the linear velocity and steering angle.
 * blah blah blah
 
-The Carlie platform could have been built without the micro-controller, but this would mean the computer would have been required to connect with all the above sensors listed as well as the VESC. By having a micro-controller take care of these interfaces and to perform some preliminary filtering/analysis of the data, it means that only a single connection is required by the computer to control the movement of the platform. Additionally, this means that the computer can easily be swapped out for a different device and all that is required to control the car is a single USB and the carlie_base ROS package to be installed. The figure below shows how the low-level hardware components are connected. 
+The Carlie platform could have been built without the micro-controller, but this would mean the computer would have been required to connect with all the above sensors listed as well as the VESC. By having a micro-controller take care of these interfaces and to perform some preliminary filtering/analysis of the data, it means that only a single connection is required by the computer to control the movement of the platform. Additionally, this means that the computer can easily be swapped out for a different device and all that is required to control the car is a single USB and the carlie_base ROS package to be installed. The figure below shows how the low- and high-level hardware components are connected. 
 
 ![](assets/HardwareArchitecture.png)
 
 ## The Base Layer
-The base layer contains the computer as well as the ROS software required to communicate with the low-level hardware. Therefore, this base layer controls the movement of the platform via a computer interfacing with the low-level layer. The base layer consists of the computer and two ROS packages, [**carlie_msgs**](https://github.com/RoboticVisionOrg/carlie_msgs) and [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base).
+The base layer contains the computer as well as the ROS software required to communicate with the low-level hardware. Therefore, this base layer controls the movement of the platform via a computer interfacing with the micro-controller on the low-level layer. The base layer consists of the computer and two ROS packages, [**carlie_msgs**](https://github.com/RoboticVisionOrg/carlie_msgs) and [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base).
 
-The [**carlie_msgs**](https://github.com/RoboticVisionOrg/carlie_msgs) ROS package contains the message definitions for custom topics used to transfer data between the computer and the micro-controller on the low level. These message types are:
+The [**carlie_msgs**](https://github.com/RoboticVisionOrg/carlie_msgs) ROS package contains the message definitions for custom topics used to transfer data between the computer and the micro-controller. These message types are:
 
 * The **CarlieConfig** and **CarlieConfigStamped** - contains data/values used to configure characteristics of the platform, such as the maximum velocity.
 * The **CarlieRawMotionData** and **CarlieRawMotionDataStamped** - contains raw tachometer and motor RPM values provided by the VESC.
@@ -44,9 +44,19 @@ The [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base) ROS packa
 
 * The **config_node** - attempts to set the Carlie config values on the micro-controller to be those specified by the ROS parameter server.
 * The **low_level_converter_node** - converts topics coming from the micro-controller that are not in standard ROS message formats, such as the raw odometry data.
-* The **driver_node** - which listens to the *joy* and */carlie/ackermann_cmd/autonomous* topics and publishes the */carlie/ackermann_cmd*, */carlie/ackermann_cmd/teleop* and */carlie/estop/gamepad* topics. The node also multiplexes the right- and left-bumpers of the Logitech F710 gamepad to enable hassle-free transition between the tele-operation and autonomous modes. If the right-bumper is held-down the */carlie/ackermann_cmd/teleop* topic is copied into the */carlie/ackermann_cmd* topic which is then passed onto the micro-controller. If the left-bumper is held-down the */carlie/ackermann_cmd/autonomous* topic is copied into the */carlie/ackermann_cmd* topic and then passed onto the micro-controller. If both right- and left-bumper or neither button is held down the */carlie/estop/gamepad* topic is set to false and the speed within the */carlie/ackermann_cmd* topic is set to zero.
+* The **driver_node** - is used to pass commands between the computer and the micro-controller. This node listens to the *joy* and */carlie/ackermann_cmd/autonomous* topics and publishes the */carlie/ackermann_cmd*, */carlie/ackermann_cmd/teleop* and */carlie/estop/gamepad* topics. The node also multiplexes the right- and left-bumpers of the Logitech F710 gamepad to enable hassle-free transition between the tele-operation and autonomous modes. If the right-bumper is held-down the */carlie/ackermann_cmd/teleop* topic is copied into the */carlie/ackermann_cmd* topic which is then passed onto the micro-controller. If the left-bumper is held-down the */carlie/ackermann_cmd/autonomous* topic is copied into the */carlie/ackermann_cmd* topic and then passed onto the micro-controller. If both right- and left-bumper or neither button is held down the */carlie/estop/gamepad* topic is set to false and the speed within the */carlie/ackermann_cmd* topic is set to zero.
+
+The *carlie_base.launch* ROS launch file is set to automatically after the computer is turned on, allowing Carlie to be tele-operated on start-up (assuming you installed carlie_pkgs via apt). The launch file is automatically run **Gavin knowledge**. 
 
 The figure below shows the nodes, topics and connections when the base layer and low-level ROS packages are running.
 
 
 ## The Sensor Layer
+The sensor layer contains the sensor suite for Carlie. The default sensor suite consists of a [Slamtec A3 RPLIDAR](https://www.slamtec.com/en/Lidar/A3) and Intel Realsense [D435 Depth](https://www.intelrealsense.com/depth-camera-d435/) and [T265 Tracking](https://www.intelrealsense.com/tracking-camera-t265/) Cameras. These sensors can be started utilising provided launch files in the [**carlie_sensors**](https://github.com/RoboticVisionOrg/carlie_sensors) package.
+
+* The **carlie_sensors.launch** - launches the LIDAR and cameras and is considered the main sensor launch file and includes the 3 launch files below. The file also setups a static transform publisher between the top sensor rig and base link. This launch file also allows you to not start specific sensors via command line arguments. For example, to launch the LIDAR and the depth camera but not the tracking/pose camera you can run the command `roslaunch carlie_sensors carlie_sensors.launch pose_camera_enabled:=false`.
+* The **laser.launch** - launches the A3 RPLIDAR as well as a static transform publisher between the top sensor rig and the LIDAR.
+* The **d435.launch** - launches the D435 Depth camera with the namespace rgbd_camera, as well as a static transform publisher between the top sensor rig and the camera.
+* The **t265.launch** - launches the T265 Tracking camera with the namespace odom_camera, static transform publishers between the top sensor rig and the camera frames and a script which transforms the odometry messages generated by the camera into an odom to base link transform (this is currently used as the odom to base link transform in GMapping). The stereo images are currently disabled and not published.
+
+The default Carlie sensor suite can easily be swapped out for your own custom sensor setup, see [here](custom_sensor_suites) for more details.

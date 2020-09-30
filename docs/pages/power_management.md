@@ -8,7 +8,7 @@ sort: 1
 Carlie is powered using one or two 3-cell 5000mAh LiPo batteries. To plug in or replace a battery(s):
 
 1. Lift up the shell
-2. Locate the two battery slots and their respective XT60 connector one the low-level control board (white PCB). There is one battery slot/connector on either side of the vehicle.
+2. Locate the two battery slots and their respective XT60 connector on the low-level control board (white PCB). There is one battery slot/connector on either side of the vehicle.
 3. Plug in one or two 3-cell LiPo batteries. *Plug in one battery if you plan on doing an extended mission (experiments longer than 1.5 hours); see [Battery Hot Swapping](#battery-hot-swapping) for details*.
 4. Lower the shell, ensuring no cables or components are caught on the edge of the shell.
 
@@ -18,9 +18,9 @@ Carlie is powered using one or two 3-cell 5000mAh LiPo batteries. To plug in or 
 
 **Note:** The approximate worst case run time for a single 3-cell 5000mAh battery is 2 hours.
 
-**Note:** Carlie will automatically power off all systems when the capacity of the batteries drops too low, preventing over-discharge. This power cut-off point occurs when all batteries are close to approximately 9 volts.
+**Note:** Carlie will automatically power off all systems when the capacity of the batteries drops too low, preventing over-discharge. This power cut-off point occurs when all batteries are approximately 9 volts.
 
-**Note:** The Vedder Electronic Speed Control (VESC), which controls linear movement, will prevent the motor from running when the voltage is below 10 volts approximately. However, the computer should still be able to be powered.
+**Note:** The Vedder Electronic Speed Control (VESC), which controls linear movement, will prevent the motor from running when the voltage is drops below 10 volts, approximately. However, the computer should remain powered until the 9 volt cut-off.
 
 ## Battery Hot Swapping
 The Carlie platform has been designed with battery hot swapping capabilities. This allows a fresh battery to be plugged in without shutting down the computer; giving Carlie the ability to undertake extended missions. To hot swap batteries:
@@ -33,10 +33,10 @@ The Carlie platform has been designed with battery hot swapping capabilities. Th
 **Tip:** If you plan on running a long duration mission we recommend you power Carlie using only a single LiPo battery. The reason for this is because Carlie cannot monitor the battery charge levels independently and drains the batteries concurrently not sequentially. Hence, you may accidentally unplug the battery that Carlie is currently using and cause a computer shutdown; as the other battery may be below system shutdown voltage.
 
 ## Charging Batteries
-Carlie does not have any in situ battery charging capabilities. To charge the batteries you must first remove them from the platform and then use an external charger. The Carlie platform comes standard with an EV-Peak E4, or equivalent, battery charger as well as LiPo safety bags. To use this charger:
+Carlie does not have any in situ battery charging capabilities. To charge the batteries you must first remove them from the platform and then use an external charger. The Carlie platform comes standard with an EV-Peak E4, or equivalent, battery charger as well as a LiPo safety bag(s). To use this charger:
 
 1. Turn on the EV-Peak E4 charger and wait until the blue LEDs turn on.
-2. Plug the balance cable, the one with the smaller white connector, of the battery into the appropriate port on the charger.
+2. Plug in the battery balance cable, the one with the smaller white connector, into the appropriate port on the charger.
 3. Place the LiPo battery into a LiPo safety bag (**important**).
 
 It will take approximately 1.5 hours to fully charge a 5000mAh battery.
@@ -60,7 +60,7 @@ When flying with batteries you **MUST DO THE FOLLOWING:**
 1. Tape the connectors, both the balance and power connectors, on the battery using electrical tape.
 2. Place the batteries in a LiPo safety bag (you can have more than one battery per bag).
 3. Take the batteries in your carry on baggage.
-4. When going through a checkpoint take the LiPo safety bags out of your checked in baggage, much like you would a laptop. You should not need to take the batteries out of the LiPo bags, but follow the directions of all safety officers. Typically a safety office will come and check the state of the batteries, to make sure they are not dangerous (e.g. badly swollen), after they have be through the scanner.
+4. When going through a checkpoint take the LiPo safety bags out of your checked in baggage, much like you would a laptop. You should not need to take the batteries out of the LiPo bags, but follow the directions of all safety officers. Typically a safety office will come and check the state of the batteries, to make sure they are not dangerous (e.g. badly swollen), after they have gone through the scanner.
 
 When flying with batteries you may be questioned about:
 * Why are you taking batteries?
