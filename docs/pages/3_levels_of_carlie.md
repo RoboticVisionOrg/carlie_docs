@@ -27,7 +27,19 @@ The micro-controller acts as a ROS node and publishes and subscribes to the foll
 
 The Carlie platform could have been built without the micro-controller, but this would mean the computer would have been required to connect with all the above sensors listed as well as the VESC. By having a micro-controller take care of these interfaces and to perform some preliminary filtering/analysis of the data, it means that only a single connection is required by the computer to control the movement of the platform. Additionally, this means that the computer can easily be swapped out for a different device and all that is required to control the car is a single USB and the carlie_base ROS package to be installed. The figure below shows how the low- and high-level hardware components are connected. 
 
-![](assets/HardwareArchitecture.png)
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/HardwareArchitecture.png" width="95%">
+</figure>
+
+There are also three LEDs located on the low-level PCB that can potentially help if a problem occurs. 
+
+* **The Green LED** is a heart beat monitor and will flash at approximately 5Hz. If the heart beat LED is ever not flashing a problem has occured within the firmware. 
+* **The Yellow LED** will turn on if there is a communication failure between the microcontroller and the controlling PC. A communication failure will occur if the microcontroller has not received the */carlie/estop/gamepad* topic within a specified time period, the default time period is 0.5 seconds. Note, that if Carlie is in RC teleoperation mode this LED will never turn on.
+* **The Red LED** will turn on if movement is currently disabled (i.e. if either the button or remote estop are engaged or if there is a communication failure). Note, that if Carlie is in RC teleoperation mode this LED will always be off and movement will always be enabled.
+
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/LEDs_Meaning.png" width="65%">
+</figure>
 
 ## The Base Layer
 The base layer contains the computer as well as the ROS software required to communicate with the low-level hardware. Therefore, this base layer controls the movement of the platform via a computer interfacing with the micro-controller on the low-level layer. The base layer consists of the computer and two ROS packages, [**carlie_msgs**](https://github.com/RoboticVisionOrg/carlie_msgs) and [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base).
@@ -44,12 +56,15 @@ The [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base) ROS packa
 
 * The **config_node** - attempts to set the Carlie config values on the micro-controller to be those specified by the ROS parameter server.
 * The **low_level_converter_node** - converts topics coming from the micro-controller that are not in standard ROS message formats, such as the raw odometry data.
-* The **driver_node** - is used to pass commands between the computer and the micro-controller. This node listens to the *joy* and */carlie/ackermann_cmd/autonomous* topics and publishes the */carlie/ackermann_cmd*, */carlie/ackermann_cmd/teleop* and */carlie/estop/gamepad* topics. The node also multiplexes the right- and left-bumpers of the Logitech F710 gamepad to enable hassle-free transition between the tele-operation and autonomous modes. If the right-bumper is held-down the */carlie/ackermann_cmd/teleop* topic is copied into the */carlie/ackermann_cmd* topic which is then passed onto the micro-controller. If the left-bumper is held-down the */carlie/ackermann_cmd/autonomous* topic is copied into the */carlie/ackermann_cmd* topic and then passed onto the micro-controller. If both right- and left-bumper or neither button is held down the */carlie/estop/gamepad* topic is set to false and the speed within the */carlie/ackermann_cmd* topic is set to zero.
+* The **driver_node** - is used to pass commands between the computer and the micro-controller. This node listens to the *joy* and */carlie/ackermann_cmd/autonomous* topics and publishes the */carlie/ackermann_cmd*, */carlie/ackermann_cmd/teleop* and */carlie/estop/gamepad* topics. The node also multiplexes the right- and left-bumpers of the Logitech F710 gamepad to enable hassle-free transition between the tele-operation and autonomous modes. If the right-bumper is held-down the */carlie/ackermann_cmd/teleop* topic is copied into the */carlie/ackermann_cmd* topic which is then passed onto the micro-controller. If the left-bumper is held-down the */carlie/ackermann_cmd/autonomous* topic is copied into the */carlie/ackermann_cmd* topic and then passed onto the micro-controller. If both right- and left-bumper or neither button is held down the */carlie/estop/gamepad* topic is set to true and the speed within the */carlie/ackermann_cmd* topic is set to zero.
 
 The *carlie_base.launch* ROS launch file is set to automatically after the computer is turned on, allowing Carlie to be tele-operated on start-up (assuming you installed carlie_pkgs via apt). The launch file is automatically run **Gavin knowledge**. 
 
-The figure below shows the nodes, topics and connections when the base layer and low-level ROS packages are running.
+The figure below shows the nodes, topics and connections when the base layer ROS package and microcontroller firmware are running.
 
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/carlie_base_and_mcu_ros_diagram.png" width="95%">
+</figure>
 
 ## The Sensor Layer
 The sensor layer contains the sensor suite for Carlie. The default sensor suite consists of a [Slamtec A3 RPLIDAR](https://www.slamtec.com/en/Lidar/A3) and Intel Realsense [D435 Depth](https://www.intelrealsense.com/depth-camera-d435/) and [T265 Tracking](https://www.intelrealsense.com/tracking-camera-t265/) Cameras. These sensors can be started utilising provided launch files in the [**carlie_sensors**](https://github.com/RoboticVisionOrg/carlie_sensors) package.

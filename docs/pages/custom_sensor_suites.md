@@ -7,4 +7,12 @@ We understand that you may wish to utilise other sensors, or replace the default
 
 There are 5V and 6V auxillary power points located on the low-level PCB, see the image below. However, as the connector type can be very sensor specific some soldering/cable creation will be required to access them. The 5V and 6V lines can power up to 2.5A each. With the default Carlie hardware this means approximately an additional 1.5A and 500mA can be loaded onto the 5V and 6V lines respectively.
 
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/5V_6V_AuxPower.png" width="80%">
+</figure>
+
 A 12V power source can be sourced by splicing an intermediate cable to sit between the low-level PCB power management system and the computer, see the image below.  The 12V source can power up to 5A. The TX2 and onboard router can draw up to approximately 1.25A and 500mA each, meaning there is approximately 3A available to power additional components on the 12V line. 
+
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/12V_AuxPower.png" width="80%">
+</figure>

@@ -34,6 +34,10 @@ You may notice a slight left or right drift when trying to drive straight, pleas
 
 **Safety Warning!** We have noticed that the gamepad has a reliable range of about 5 metres. After 5 metres there is some extremely noticeable lag and dropout, and releasing of the deadman switch may not result in an immediate stop. If you wish to be further than 5 metres away from the vehicle while tele-operating we recommend using the RC remote instead.
 
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/Carlie_Logitech_Controls.png" width="50%">
+</figure>
+
 ### **Tele-Operation via Standard RC Remote**
 Carlie can also be operated via the standard RC Remote. While this method does allow for longer range operation, it does mean you cannot have additional capabilities tied to that remote (i.e. a deadman switch or a button to change states etc.). In order to control the platform using the RC Remote you will need to flick the switch that resides next to the Teensy on the Low Level Control Board (white PCB). To do this:
 
@@ -43,6 +47,10 @@ Carlie can also be operated via the standard RC Remote. While this method does a
 4. You should now be able to operate the vehicle using the RC remote.
 
 While the platform is in this mode, which is dictated by the switch, the car can not receive autonomous control commands. This was a design choice due to safety.
+
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/PC_RC_Switch.png" width="75%">
+</figure>
 
 ### **Autonomous Driving**
 At some point you will want the car to perform some autonomous actions. We have made the transistion from Logitech tele-operation to autonomous mode hassle-free. To transition from Logitech tele-operation mode to autonomous mode all you need to do is:

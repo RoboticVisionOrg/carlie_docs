@@ -22,6 +22,11 @@ Carlie is powered using one or two 3-cell 5000mAh LiPo batteries. To plug in or 
 
 **Note:** The Vedder Electronic Speed Control (VESC), which controls linear movement, will prevent the motor from running when the voltage is drops below 10 volts, approximately. However, the computer should remain powered until the 9 volt cut-off.
 
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/battery_slot_empty.jpg" width="47%">
+    <img src="assets/battery_slot_full.jpg" width="47%">
+</figure>
+
 ## Battery Hot Swapping
 The Carlie platform has been designed with battery hot swapping capabilities. This allows a fresh battery to be plugged in without shutting down the computer; giving Carlie the ability to undertake extended missions. To hot swap batteries:
 
@@ -44,6 +49,10 @@ It will take approximately 1.5 hours to fully charge a 5000mAh battery.
 **Safety Warning!** Do not leave charging LiPo batteries unattended.
 
 **Safety Warning!** LiPo batteries should always be stored in a LiPo safety bag when not in use or when being charged.
+
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/battery_charging.jpg" width="75%">
+</figure>
 
 ## Flying with LiPo Batteries
 Flying with LiPo batteries is typically not difficult if you follow the rules. Typically, at least in Australia, the rules are as follows:
@@ -70,4 +79,6 @@ When flying with batteries you may be questioned about:
 
 This is all normal, do not be concerned. Typically there are more questions about laptops or bundles of cords than LiPo batteries. Know the rules and work within them and follow all directions of the security officers and you will have no issues travelling with batteries.
 
-
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/taped_battery.jpg" width="50%" style="transform:rotate(270deg);">
+</figure>
