@@ -26,10 +26,7 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 - 3.45pm Thursday 26th November: Show Time
 
 ## Prizes
-
-- First Place: $500
-- Second Place: $150
-- People's Choice: $100
+ To be determined.
 
 ## The Format
 
