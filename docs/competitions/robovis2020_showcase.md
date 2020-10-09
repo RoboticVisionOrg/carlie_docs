@@ -26,7 +26,7 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 - 3.45pm Thursday 26th November: Show Time
 
 ## Prizes
- To be determined.
+To be determined.
 
 ## The Format
 
