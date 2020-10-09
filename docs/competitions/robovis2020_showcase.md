@@ -33,12 +33,12 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 
 ## The Format
 
-The Carlie Showcase will require you to present the work you utilised the platform for in a 3-5 minute engaging presentation. Your presentation will be assessed by an independent panel of judges. The criteria will sorround:
+The Carlie Showcase will require you to present the work you utilised the platform for in a 3-5 minute engaging presentation. Your presentation will be assessed by an independent panel of judges. The criteria will consist of:
 
 - the quality of your research activity or you public demonstration, and how you utilised Carlie to help you with your goal; and
 - the quality of your presentation - how clearly you articulate your ideas and how engaging is your presentation.
 
-More detailed criteria will be made available shortly. While live demonstration are always a pleasure to watch they are not necessary and no "extra marks" will be awarded for a live demonstration, but videos are highly encouraged. There will be 
+More detailed criteria will be made available shortly. While live demonstrations are always a pleasure to watch they are not necessary and no "extra marks" will be awarded for a live demonstration, but videos are highly encouraged. 
 
 ## The Panel
 
