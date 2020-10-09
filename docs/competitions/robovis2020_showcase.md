@@ -7,7 +7,7 @@ sort: 1
 
 The Carlie Showcase Competition, to be held at ACRV RoboVis 2020, is a chance to show the world how you utilised the Carlie platform in an exciting, innovative or compelling research activity or public demonstration. There are **cash prizes up for grabs**.
 
-Any questions please contact James Mount (j.mount@qut.edu.au).
+Any questions please contact James Mount (j.mount@qut.edu.au). For our Melbourne based colleagues there is the option to work with James on a remote demo.
 
 <figure float="center" style="margin-bottom: 0.2em; display: block; text-align: center">
     <img src="assets/AutoPark.png" width="37%">
