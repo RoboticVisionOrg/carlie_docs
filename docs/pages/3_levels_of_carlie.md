@@ -20,10 +20,19 @@ The low-level layer consists of all the hardware and software components require
 * A control interface via the standard RC remote (meaning a computer does not need to be connected to allow Carlie to be tele-operated)
 * A motor emergency stop button
 
-The micro-controller acts as a ROS node and publishes and subscribes to the following topics:
+The micro-controller acts as a ROS node and subscribes to the following topics:
 
 * The **/carlie/ackermann_cmd** topic - contains the control values to be performed, such as the linear velocity and steering angle.
-* blah blah blah
+* The **/carlie/estop/gamepad** topic - which contains a boolean value specifying if the estop is engaged and that movement should be disabled.
+* The **/carlie/teensy/config/set** topic - a topic which is used to set the micro-controller config variables. While this should be setup as a ROS service this is not possible in Arduino.
+
+The micro-controller also publishes to the following topics:
+
+* The **/carlie/imu/raw** topic - which contain IMU data as a string which is converted to the standard IMU message topic in the low-level converter node.
+* The **/carlie/odom/raw** topic - which contains the most recent measured linear velocity and steering angle, as well as the raw motion measurement data (tachometer and and motor RPM).
+* The **/carlie/teensy/status** topic - contains current status information about the low-level layer, including if movement is enabled and the battery voltage.
+* The **/carlie/teensy/config** topic - contains the current configuration values for the low-level.
+* The **/carlie/proximity** topic - contains the raw measurements from the four short range LIDAR sensors and the current collision type.
 
 The Carlie platform could have been built without the micro-controller, but this would mean the computer would have been required to connect with all the above sensors listed as well as the VESC. By having a micro-controller take care of these interfaces and to perform some preliminary filtering/analysis of the data, it means that only a single connection is required by the computer to control the movement of the platform. Additionally, this means that the computer can easily be swapped out for a different device and all that is required to control the car is a single USB and the carlie_base ROS package to be installed. The figure below shows how the low- and high-level hardware components are connected. 
 
@@ -58,7 +67,7 @@ The [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base) ROS packa
 * The **low_level_converter_node** - converts topics coming from the micro-controller that are not in standard ROS message formats, such as the raw odometry data.
 * The **driver_node** - is used to pass commands between the computer and the micro-controller. This node listens to the *joy* and */carlie/ackermann_cmd/autonomous* topics and publishes the */carlie/ackermann_cmd*, */carlie/ackermann_cmd/teleop* and */carlie/estop/gamepad* topics. The node also multiplexes the right- and left-bumpers of the Logitech F710 gamepad to enable hassle-free transition between the tele-operation and autonomous modes. If the right-bumper is held-down the */carlie/ackermann_cmd/teleop* topic is copied into the */carlie/ackermann_cmd* topic which is then passed onto the micro-controller. If the left-bumper is held-down the */carlie/ackermann_cmd/autonomous* topic is copied into the */carlie/ackermann_cmd* topic and then passed onto the micro-controller. If both right- and left-bumper or neither button is held down the */carlie/estop/gamepad* topic is set to true and the speed within the */carlie/ackermann_cmd* topic is set to zero.
 
-The *carlie_base.launch* ROS launch file is set to automatically after the computer is turned on, allowing Carlie to be tele-operated on start-up (assuming you installed carlie_pkgs via apt). The launch file is automatically run **Gavin knowledge**. 
+The *carlie_base.launch* ROS launch file is set to automatically start after the computer is turned on, allowing Carlie to be tele-operated on start-up (assuming you installed carlie_pkgs via apt). The launch file is automatically run **Gavin knowledge**. 
 
 The figure below shows the nodes, topics and connections when the base layer ROS package and microcontroller firmware are running.
 

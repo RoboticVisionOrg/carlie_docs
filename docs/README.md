@@ -1,6 +1,6 @@
 # Carlie Documentation
 
-Thank you for your support by utilising the Carlie platform. It has been designed to simplify autonomous car research, education and to help facilitate engaging demonstrations. We hope it makes your these areas of your life as simple as possible.
+Thank you for your support by utilising the Carlie platform. It has been designed to simplify autonomous car research, education and to help facilitate engaging demonstrations. We hope it makes these areas of your life as simple as possible.
 
 <figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
     <img src="pages/assets/Carlie.png" width="75%">
