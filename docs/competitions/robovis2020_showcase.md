@@ -7,7 +7,7 @@ sort: 1
 
 The Carlie Showcase Competition, to be held at ACRV RoboVis 2020, is a chance to show the world how you utilised the Carlie platform in an exciting, innovative or compelling research activity or public demonstration. There are **cash prizes up for grabs**.
 
-Any questions please contact James Mount (j.mount@qut.edu.au).
+Any questions please contact James Mount (j.mount@qut.edu.au). For our Melbourne based colleagues there is the option to work with James on a remote demo.
 
 <figure float="center" style="margin-bottom: 0.2em; display: block; text-align: center">
     <img src="assets/AutoPark.png" width="37%">
@@ -26,19 +26,16 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 - 3.45pm Thursday 26th November: Show Time
 
 ## Prizes
-
-- First Place: $500
-- Second Place: $150
-- People's Choice: $100
+ To be determined.
 
 ## The Format
 
-The Carlie Showcase will require you to present the work you utilised the platform for in a 3-5 minute engaging presentation. Your presentation will be assessed by an independent panel of judges. The criteria will sorround:
+The Carlie Showcase will require you to present the work you utilised the platform for in a 3-5 minute engaging presentation. Your presentation will be assessed by an independent panel of judges. The criteria will consist of:
 
 - the quality of your research activity or you public demonstration, and how you utilised Carlie to help you with your goal; and
 - the quality of your presentation - how clearly you articulate your ideas and how engaging is your presentation.
 
-More detailed criteria will be made available shortly. While live demonstration are always a pleasure to watch they are not necessary and no "extra marks" will be awarded for a live demonstration, but videos are highly encouraged. There will be 
+More detailed criteria will be made available shortly. While live demonstrations are always a pleasure to watch they are not necessary and no "extra marks" will be awarded for a live demonstration, but videos are highly encouraged. 
 
 ## The Panel
 
