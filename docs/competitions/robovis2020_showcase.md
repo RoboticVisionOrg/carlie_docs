@@ -7,7 +7,19 @@ sort: 1
 
 The Carlie Showcase Competition, to be held at ACRV RoboVis 2020, is a chance to show the world how you utilised the Carlie platform in an exciting, innovative or compelling research activity or public demonstration. There are **cash prizes up for grabs**.
 
+Any questions please contact James Mount (j.mount@qut.edu.au).
+
+<figure float="center" style="margin-bottom: 0.2em; display: block; text-align: center">
+    <img src="assets/AutoPark.png" width="37%">
+    <img src="assets/ANU_Project.png" width="51.5%">
+</figure>
+<figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
+    <img src="assets/Vineyard_Car.png" width="60%">
+</figure>
+
 ## Key Dates
+
+All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 
 - 9.00am Monday 9th November: Nomination deadline
 - 5.00pm Tuesday 24th November: Presentation documents deadline
@@ -34,8 +46,9 @@ The panel will be announced at a later date.
 
 ## The Nominations
 
-To nominate please email James Mount (j.mount@qut.edu.au) with the following information,
+To nominate please fill out the following form.
 
-- Names of people associated with the project
-- Title of project
-- Contact person and their email
+<div>
+<iframe style="width: 100%; height: 55em; margin: 0 auto;" src="https://docs.google.com/forms/d/e/1FAIpQLSdTuPpxdQ8Kk0sFvviIXIoKVwXMuP8IAC8rHusO_ftFtyhORA/viewform?embedded=true" frameborder="0">Loading…</iframe>
+</div>
+    

@@ -3,11 +3,15 @@ published: true
 sort: 2
 ---
 
-# RoboVis 2020 - Vision Challenge Competition (Potentially)
+# RoboVis 2020 - Vision Challenge (Potentially)
 
 The Carlie Vision Challenge, to be held at ACRV RoboVis 2020, is a chance to demonstrate your skills as a robotics/vision engineer. We are currently planning to run this competition similar to a hack-a-thon style prior to RoboVis 2020, where the details of the challenge and the assessment criteria are released at 9am and submissions are due by 5pm. However, the core of the challenge will involve developing a vision algorithm utilising Python and OpenCV to perform a task with the Carlie platform. The challenge may completed as an individual or in teams of 3 people or less. There are **cash prizes up for grabs**.
 
+Any questions please contact James Mount (j.mount@qut.edu.au).
+
 ## Key Dates
+
+All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time). 
 
 - 5.00pm Thursday 16th November: Nomination Deadline
 - 9.00am Monday 23rd November: Competition details are released and the hack-a-thon starts
@@ -41,7 +45,8 @@ Your submission will be assessed based on two factors:
 
 ## The Nominations
 
-To nominate please email James Mount (j.mount@qut.edu.au) with the following information,
+To nominate please fill out the following form.
 
-- Name, or names if undertaking as part of a team
-- Contact person and their email
+<div>
+<iframe style="width: 100%; height: 55em; margin: 0 auto;" src="https://docs.google.com/forms/d/e/1FAIpQLSd2H8gSRy5A1Bvwi5zI0iwzhcjmdRTW44JqvFjC2TV_Z31Z3g/viewform?embedded=true"  frameborder="0">Loading…</iframe>
+</div>
