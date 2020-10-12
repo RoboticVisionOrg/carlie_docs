@@ -32,6 +32,8 @@ A minute or two after the computer has started up you should be able to drive Ca
 
 You may notice a slight left or right drift when trying to drive straight, please see the [Config and Calibration](#config-and-calibration) routine below on how to remedy this.
 
+**Note** The Logitech F710 gamepad will need to be in the *D* Mode. The switch can be found on the top edge of the controller.
+
 **Safety Warning!** We have noticed that the gamepad has a reliable range of about 5 metres. After 5 metres there is some extremely noticeable lag and dropout, and releasing of the deadman switch may not result in an immediate stop. If you wish to be further than 5 metres away from the vehicle while tele-operating we recommend using the RC remote instead.
 
 <figure float="center" style="margin-bottom: 2em; display: block; text-align: center">

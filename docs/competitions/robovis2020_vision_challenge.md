@@ -18,9 +18,9 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 - 5.00pm Thursday 16th November: Nomination Deadline
 - 9.00am Monday 23rd November: Competition details are released and the hack-a-thon starts
 - 5.00pm Monday 23rd November: Submission deadline and competition closes
-- 5.00pm Wednesday 25th November: 1-2 Page document explaining your vision algorithm
-- 24/25th November: Submissions will be assessed by James Mount using the QUT Carlie platform 
-- RoboVis (26/27th November): Videos of the submitted vision algorithms will be presented as well as the winners
+- 5.00pm Wednesday 24th November: 1-2 page document explaining your vision algorithm
+- 24th November: Submissions will be assessed by James Mount using the QUT Carlie platform 
+- RoboVis (25/26th November): Winners will be announced
 
 ## Prizes
 To be determined.
