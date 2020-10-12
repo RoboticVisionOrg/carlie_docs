@@ -23,7 +23,7 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 
 - 9.00am Monday 9th November: Nomination deadline
 - 5.00pm Tuesday 24th November: Presentation documents deadline
-- 3.45pm Thursday 25th November: Show Time
+- RoboVis (25/26th November): Show Time
 
 ## Prizes
 To be determined.
