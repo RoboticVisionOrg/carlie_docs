@@ -15,7 +15,7 @@ Any questions please contact James Mount (j.mount@qut.edu.au).  For our Melbourn
 
 All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time). 
 
-- 5.00pm Thursday 16th November: Nomination Deadline
+- ~~5.00pm Monday 16th November~~ Extended to 5.00pm Wednesday 18th November: Nomination Deadline
 - 9.00am Monday 23rd November: Competition details are released and the hack-a-thon starts
 - 5.00pm Monday 23rd November: Submission deadline and competition closes
 - 5.00pm Tuesday 24th November: 1-2 page document explaining your vision algorithm
@@ -23,7 +23,11 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 - RoboVis (25/26th November): Winners will be announced
 
 ## Prizes
-To be determined.
+Prize will be awarded to the following:
+
+- 1st Place
+- 2nd Place
+- 3rd Place
 
 ## The Format
 

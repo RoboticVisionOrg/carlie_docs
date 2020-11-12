@@ -26,7 +26,11 @@ All times are in Australian Eastern Standard Time (AEST) (i.e. Queensland Time).
 - RoboVis (25/26th November): Show Time
 
 ## Prizes
-To be determined.
+Prize will be awarded to the following:
+
+- 1st Place
+- 2nd Place
+- 3rd Place
 
 ## The Format
 
