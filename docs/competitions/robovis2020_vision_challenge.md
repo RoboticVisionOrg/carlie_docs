@@ -3,7 +3,7 @@ published: true
 sort: 2
 ---
 
-# RoboVis 2020 - Vision Challenge
+# RoboVis 2020 - Vision Challenge (Hack-A-Thon)
 
 The Carlie Vision Challenge, to be held at ACRV RoboVis 2020, is a chance to demonstrate your skills as a robotics/vision engineer. This competition is similar to a hack-a-thon style prior to RoboVis 2020, where the details of the challenge and the assessment criteria are released at 9am and submissions are due by 5pm. However, the core of the challenge will involve developing a vision algorithm utilising Python and OpenCV to perform a task with the Carlie platform. The challenge may completed as an individual or in teams of 3 people or less. There are **cash prizes up for grabs**.
 
