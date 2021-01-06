@@ -1,9 +1,8 @@
 ---
-published: false
-sort: 3
+sort: 1
 ---
 
-# RoboVis 2020 Competitions
+# Getting Started
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}

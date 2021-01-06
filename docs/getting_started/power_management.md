@@ -81,4 +81,5 @@ This is all normal, do not be concerned. Typically there are more questions abou
 
 <figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
     <img src="assets/taped_battery.jpg" width="50%" style="transform:rotate(270deg);">
+    <figcaption style="margin-top: -3em;">LiPo battery with taped connectors.</figcaption>
 </figure>

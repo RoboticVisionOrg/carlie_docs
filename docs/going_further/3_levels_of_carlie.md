@@ -1,5 +1,5 @@
 ---
-sort: 6
+sort: 1
 ---
 
 # The 3 Levels of Carlie
@@ -9,7 +9,7 @@ The Carlie platform consists of 3 levels in both its hardware and software desig
 2. The base layer
 3. The sensor layer
 
-We have developed these layers to allow you to develop the fourth level, the application layer, as easily as possible. However, we have also developed Carlie with this 3 level principle to allow you to change components easily, such as the computation module or the sensors. Please note, we will sometimes use the term 'high-level' to refer to the combination of the base and sensor layers.
+We have developed these layers to allow you to develop the fourth level, the application layer, as easily as possible. However, we have also developed Carlie with this 3 level principle to allow you to change components easily, such as the computation module or the sensors. Please note, we will sometimes use the term 'high-level' to refer to the combined base and sensor layers.
 
 ## The Low-Level Layer
 The low-level layer consists of all the hardware and software components required to make the platform physically move. This includes:
@@ -34,7 +34,7 @@ The micro-controller also publishes to the following topics:
 * The **/carlie/teensy/config** topic - contains the current configuration values for the low-level.
 * The **/carlie/proximity** topic - contains the raw measurements from the four short range LIDAR sensors and the current collision type.
 
-The Carlie platform could have been built without the micro-controller, but this would mean the computer would have been required to connect with all the above sensors listed as well as the VESC. By having a micro-controller take care of these interfaces and to perform some preliminary filtering/analysis of the data, it means that only a single connection is required by the computer to control the movement of the platform. Additionally, this means that the computer can easily be swapped out for a different device and all that is required to control the car is a single USB and the carlie_base ROS package to be installed. The figure below shows how the low- and high-level hardware components are connected. 
+The Carlie platform could have been built without the micro-controller, but this would mean the computer would have been required to connect with all the above sensors listed as well as the VESC. By having a micro-controller take care of these interfaces and to perform some preliminary filtering/analysis of the data, it means that only a single connection is required by the computer to control the movement of the platform. Additionally, this means that the computer can easily be swapped out for a different device and all that is required to control the car is a single USB and the *carlie_msgs* and *carlie_base* ROS packages to be installed, along with their dependencies. The figure below shows how the low- and high-level hardware components are connected. 
 
 <figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
     <img src="assets/HardwareArchitecture.png" width="95%">
@@ -43,7 +43,7 @@ The Carlie platform could have been built without the micro-controller, but this
 There are also three LEDs located on the low-level PCB that can potentially help if a problem occurs. 
 
 * **The Green LED** is a heart beat monitor and will flash at approximately 5Hz. If the heart beat LED is ever not flashing a problem has occured within the firmware. 
-* **The Yellow LED** will turn on if there is a communication failure between the microcontroller and the controlling PC. A communication failure will occur if the microcontroller has not received the */carlie/estop/gamepad* topic within a specified time period, the default time period is 0.5 seconds. Note, that if Carlie is in RC teleoperation mode this LED will never turn on.
+* **The Yellow LED** will turn on if there is a communication failure between the micro-controller and the controlling PC. A communication failure will occur if the micro-controller has not received the */carlie/estop/gamepad* topic within a specified time period, the default time period is 0.5 seconds. Note, that if Carlie is in RC teleoperation mode this LED will never turn on.
 * **The Red LED** will turn on if movement is currently disabled (i.e. if either the button or remote estop are engaged or if there is a communication failure). Note, that if Carlie is in RC teleoperation mode this LED will always be off and movement will always be enabled.
 
 <figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
@@ -61,15 +61,21 @@ The [**carlie_msgs**](https://github.com/RoboticVisionOrg/carlie_msgs) ROS packa
 * The **CarlieRawProximityData** and **CarlieRawProximityDataStamped** - contains the raw proximity data provided by the short range LIDAR sensors.
 * The **CarlieStatus** and **CarlieStatusStamped** - contains data/values stating the current state of the low-level system, such as whether movement is currently enabled.
 
-The [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base) ROS package contains three nodes and a singular launch file. The three nodes are:
+The [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base) ROS package contains five nodes and two launch files, one of which is only to provide improved feedback to the user. The five nodes are:
 
 * The **config_node** - attempts to set the Carlie config values on the micro-controller to be those specified by the ROS parameter server.
 * The **low_level_converter_node** - converts topics coming from the micro-controller that are not in standard ROS message formats, such as the raw odometry data.
 * The **driver_node** - is used to pass commands between the computer and the micro-controller. This node listens to the *joy* and */carlie/ackermann_cmd/autonomous* topics and publishes the */carlie/ackermann_cmd*, */carlie/ackermann_cmd/teleop* and */carlie/estop/gamepad* topics. The node also multiplexes the right- and left-bumpers of the Logitech F710 gamepad to enable hassle-free transition between the tele-operation and autonomous modes. If the right-bumper is held-down the */carlie/ackermann_cmd/teleop* topic is copied into the */carlie/ackermann_cmd* topic which is then passed onto the micro-controller. If the left-bumper is held-down the */carlie/ackermann_cmd/autonomous* topic is copied into the */carlie/ackermann_cmd* topic and then passed onto the micro-controller. If both right- and left-bumper or neither button is held down the */carlie/estop/gamepad* topic is set to true and the speed within the */carlie/ackermann_cmd* topic is set to zero.
+* The **odom_filter_node** - publishes a filtered odometry topic by passing the IMU and raw odometry data through an extended Kalman filter (EKF). This will also publish a odom to base_link transform using the filtered odometry by default. This can be changed through the config file see [Odometry EKF Filter Config](../getting_started/carlie_config_and_calibration.html#odometry-ekf-filter-config) for details.
+* The **power_monitor_node** - is used to create a system tray icon which displays the current voltage, and approximate battery level, for Carlie.
 
-The *carlie_base.launch* ROS launch file is set to automatically start after the computer is turned on, allowing Carlie to be tele-operated on start-up (assuming you installed carlie_pkgs via apt). The launch file is automatically run **Gavin knowledge**. 
+The *carlie_base.launch* and *carlie_pwer_monitor.launch* ROS launch files are set to automatically start after the computer is turned on  (assuming you installed carlie_pkgs via apt). The automatic launch of *carlie_base.launch* should allow Carlie to be tele-operated on start-up. The launch files are automatically run **Gavin knowledge**. 
 
-The figure below shows the nodes, topics and connections when the base layer ROS package and microcontroller firmware are running.
+The *carlie_base.launch* also publishes the following static transforms:
+- imu to base_link - for the onboard Razor IMU
+- gps_link to base_link - for the onboard GPS
+
+The figure below shows the nodes, topics and connections when the base layer ROS package, excluding the power monitor, and the micro-controller firmware are running.
 
 <figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
     <img src="assets/carlie_base_and_mcu_ros_diagram.png" width="95%">

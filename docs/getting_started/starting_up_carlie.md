@@ -1,5 +1,5 @@
 ---
-sort: 2
+sort: 3
 ---
 
 # Starting Up and Driving Carlie
@@ -23,18 +23,18 @@ Carlie can be controlled in three different ways out-of-the-box. These three way
 * Tele-operated via the Traxxas RC Remote that came with the Traxxas Platform (which Carlie is built upon), or
 * Autonomously via computer generated control commands.
 
+**IMPORTANT!** Before driving Carlie using the Logitech F710 Gamepad or via the Traxxas RC Remote make sure to check that the neutral steering position for each remote has the wheels pointing approximately straight. This can be done by turning on the car and pressing only the deadman switch, if applicable, and leaving the other control inputs in their neutral position. Then using the steering control attempt to manipulate the wheels, ensuring that when the steering control input goes back to the neutral position the wheels return to pointing straight. If the wheels are point at an extreme angle (e.g. +/-10 degrees off straight) please go [calibrate the center steering angle](../going_further/carlie_config_and_calibration#calibrating-carlie-control-parameters) parameter now as not to cause damage to the steering servo. If the wheels are not quite pointing straight, that is okay for now, you can continue on and fix this later.
+
 ### **Tele-Operation via Logitech F710 Gamepad**
-A minute or two after the computer has started up you should be able to drive Carlie using the Logitech Gamepad. The controls are as follows:
+A minute or two after the computer has started up you should be able to drive Carlie using the Logitech Gamepad. The Logitech F710 gamepad will need to be in the *D Mode*; the switch can be found on the top edge of the controller. The controls are as follows:
 
 * Right Bumper - is a deadman switch. It must be pressed at all times when tele-operating the robot. Releasing it will stop the vehicle.
 * Right Joystick - is used to control the steering.
 * Left Joystick - is used to control the linear velocity.
 
-You may notice a slight left or right drift when trying to drive straight, please see the [Config and Calibration](#config-and-calibration) routine below on how to remedy this.
+You may notice a slight left or right drift when trying to drive straight, [calibrate the center steering angle](../going_further/carlie_config_and_calibration#calibrating-carlie-control-parameters) parameter to remedy this. 
 
-**Note** The Logitech F710 gamepad will need to be in the *D* Mode. The switch can be found on the top edge of the controller.
-
-**Safety Warning!** We have noticed that the gamepad has a reliable range of about 5 metres. After 5 metres there is some extremely noticeable lag and dropout, and releasing of the deadman switch may not result in an immediate stop. If you wish to be further than 5 metres away from the vehicle while tele-operating we recommend using the RC remote instead.
+**SAFETY WARNING!** We have noticed that the gamepad has a reliable range of about 5 metres. After 5 metres there is some extremely noticeable lag and dropout, and releasing of the deadman switch may not result in an immediate stop. If you wish to be further than 5 metres away from the vehicle while tele-operating we recommend using the RC remote instead.
 
 <figure float="center" style="margin-bottom: 2em; display: block; text-align: center">
     <img src="assets/Carlie_Logitech_Controls.png" width="50%">
@@ -60,8 +60,8 @@ At some point you will want the car to perform some autonomous actions. We have 
 1. Bring the car to a halt. 
 2. Stop holding the Right Bumper, which we will now call the tele-operation deadman switch.
 3. Press and hold the Left Bumper, which we will now call the autonomous deadman switch.
-4. If there are autonomous car commands being generated then the car would now listen to them rather than the tele-operation commands.
+4. If there are autonomous car commands being generated these will be executed instead of the tele-operation commands.
 
-This should allow you to easily switch between tele-operation and autonomous modes and allow you to easily reset experiments. The HSV Blob Following Demo shows how you can generate autonomous control commands.
+This should allow you to easily switch between tele-operation and autonomous modes and allow you to easily reset experiments. The HSV Blob Following Demo is an example of how you can generate autonomous control commands.
 
 **Note:** for ROS users what we have done is created an exclusive-or multiplexer using the left and right bumpers of the Logitech Gamepad which forwards either the */carlie/ackermann_cmd/teleop* or */carlie/ackermann_cmd/autonomous* down to the low level hardware via the */carlie/ackemann_cmd* topic, depending on which bumper is currently held. All three messages are of type *AckermannDrive*. 
