@@ -1,5 +1,5 @@
 ---
-sort: 3
+sort: 4
 ---
 
 # Starting Up and Driving Carlie
@@ -10,6 +10,7 @@ To turn on Carlie press the *on button* located on the shell. Pressing the on bu
 As part of the start-up sequence the computer will automatically launch the following systems:
 
 * Carlie Base System - this is required to allow the computer to communicate with the low-level hardware (motion control, IMU, GPS, short-range LIDAR sensors) as well as provides the tele-operation via the gamepad and the hassle-free switch between tele-operation and autonomous modes.
+* Carlie Power Monitor - this creates a system tray icon to show the current status of the batteries.
 
 ## Turning Off Carlie
 To turn off Carlie we recommend you first shut down the computer in the usual fashion. Once the computer has shut down you can press the off button located on the shell. Pressing the off button disconnects power from all the systems. We then recommend you unplug the battery and place it in a LiPo safety bag.
@@ -23,7 +24,7 @@ Carlie can be controlled in three different ways out-of-the-box. These three way
 * Tele-operated via the Traxxas RC Remote that came with the Traxxas Platform (which Carlie is built upon), or
 * Autonomously via computer generated control commands.
 
-**IMPORTANT!** Before driving Carlie using the Logitech F710 Gamepad or via the Traxxas RC Remote make sure to check that the neutral steering position for each remote has the wheels pointing approximately straight. This can be done by turning on the car and pressing only the deadman switch, if applicable, and leaving the other control inputs in their neutral position. Then using the steering control attempt to manipulate the wheels, ensuring that when the steering control input goes back to the neutral position the wheels return to pointing straight. If the wheels are point at an extreme angle (e.g. +/-10 degrees off straight) please go [calibrate the center steering angle](../going_further/carlie_config_and_calibration#calibrating-carlie-control-parameters) parameter now as not to cause damage to the steering servo. If the wheels are not quite pointing straight, that is okay for now, you can continue on and fix this later.
+**IMPORTANT!** Before driving Carlie for the first time using the Logitech F710 Gamepad or the Traxxas RC Remote make sure to check that the neutral steering position for each remote has the wheels pointing approximately straight. This can be done by turning the car on and pressing only the deadman switch, if applicable, and leaving the other control inputs in their neutral position. Then using the steering control attempt to manipulate the wheels, ensuring that when the steering control input goes back to the neutral position the wheels return to pointing straight. If the wheels are point at an extreme angle (e.g. +/-10 degrees off straight) please go calibrate the [center steering angle](../going_further/carlie_config_and_calibration#calibrating-carlie-control-parameters) parameter now as not to cause damage to the steering servo. If the wheels are not quite pointing straight, that is okay for now, you can continue on and fix this later.
 
 ### **Tele-Operation via Logitech F710 Gamepad**
 A minute or two after the computer has started up you should be able to drive Carlie using the Logitech Gamepad. The Logitech F710 gamepad will need to be in the *D Mode*; the switch can be found on the top edge of the controller. The controls are as follows:

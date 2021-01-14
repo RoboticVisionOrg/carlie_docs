@@ -1,5 +1,5 @@
 ---
-sort: 2
+sort: 3
 ---
 
 # Updating Carlie Software
@@ -10,7 +10,6 @@ Before going any futher we should ensure your Carlie platform has the most up-to
 
     sudo apt update
     sudo apt upgrade
-    sudo apt install ros-melodic-carlie
 
 ## Updating Carlie Ubuntu Image
 

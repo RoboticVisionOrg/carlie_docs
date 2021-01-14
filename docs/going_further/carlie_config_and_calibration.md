@@ -69,7 +69,7 @@ The following parameters are used to set the IMU covariances. These values **can
 
 
 ## Calibrating Carlie Control Parameters
-To calibrate the control parameters perform the following. ***GAVIN*** *we need a serial monitor program - either can use SerialTUI or better would be to have Arduino IDE with Teensyduino add-on installed within the image*
+To calibrate the control parameters perform the following. You will require a serial monitor program. We recommend you install the [Arduino IDE](https://www.arduino.cc/en/software) along with the [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) add-on and use the Arduino serial monitor, if it is not already available.
 
 1. Turn on the car and make sure the E-Stop button, the one on the shell, is engaged (pressed down).
 2. Change the Teensy firmware over into calibration mode by opening up a terminal and running the following command `sudo CarlieInstallTeensyFirmware /var/lib/carlie/calibration.hex`

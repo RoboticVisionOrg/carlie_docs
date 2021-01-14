@@ -64,16 +64,18 @@ The [**carlie_msgs**](https://github.com/RoboticVisionOrg/carlie_msgs) ROS packa
 The [**carlie_base**](https://github.com/RoboticVisionOrg/carlie_base) ROS package contains five nodes and two launch files, one of which is only to provide improved feedback to the user. The five nodes are:
 
 * The **config_node** - attempts to set the Carlie config values on the micro-controller to be those specified by the ROS parameter server.
-* The **low_level_converter_node** - converts topics coming from the micro-controller that are not in standard ROS message formats, such as the raw odometry data.
+* The **low_level_converter_node** - converts topics coming from the micro-controller that are not in standard ROS message formats, such as the raw odometry data. Subscribes to */carlie/reset/odom* and */initialpose* topics which can be used to reset and set a specific initial pose respectively.
 * The **driver_node** - is used to pass commands between the computer and the micro-controller. This node listens to the *joy* and */carlie/ackermann_cmd/autonomous* topics and publishes the */carlie/ackermann_cmd*, */carlie/ackermann_cmd/teleop* and */carlie/estop/gamepad* topics. The node also multiplexes the right- and left-bumpers of the Logitech F710 gamepad to enable hassle-free transition between the tele-operation and autonomous modes. If the right-bumper is held-down the */carlie/ackermann_cmd/teleop* topic is copied into the */carlie/ackermann_cmd* topic which is then passed onto the micro-controller. If the left-bumper is held-down the */carlie/ackermann_cmd/autonomous* topic is copied into the */carlie/ackermann_cmd* topic and then passed onto the micro-controller. If both right- and left-bumper or neither button is held down the */carlie/estop/gamepad* topic is set to true and the speed within the */carlie/ackermann_cmd* topic is set to zero.
-* The **odom_filter_node** - publishes a filtered odometry topic by passing the IMU and raw odometry data through an extended Kalman filter (EKF). This will also publish a odom to base_link transform using the filtered odometry by default. This can be changed through the config file see [Odometry EKF Filter Config](../getting_started/carlie_config_and_calibration.html#odometry-ekf-filter-config) for details.
+* The **odom_filter_node** - publishes a filtered odometry topic by passing the IMU and raw odometry data through an extended Kalman filter (EKF). This will also publish a odom to base_link transform using the filtered odometry by default. This can be changed through the config file see [Odometry EKF Filter Config](../getting_started/carlie_config_and_calibration.html#odometry-ekf-filter-config) for details. Subscribes to */carlie/reset/odom* and */initialpose* topics which can be used to reset and set a specific initial pose respectively.
 * The **power_monitor_node** - is used to create a system tray icon which displays the current voltage, and approximate battery level, for Carlie.
 
-The *carlie_base.launch* and *carlie_pwer_monitor.launch* ROS launch files are set to automatically start after the computer is turned on  (assuming you installed carlie_pkgs via apt). The automatic launch of *carlie_base.launch* should allow Carlie to be tele-operated on start-up. The launch files are automatically run **Gavin knowledge**. 
+The *carlie_base.launch* and *carlie_pwer_monitor.launch* ROS launch files are set to automatically start after the computer is turned on  (assuming you installed carlie_pkgs via apt). The automatic launch of *carlie_base.launch* should allow Carlie to be tele-operated on start-up. The launch files are automatically run via *systemd*. 
 
 The *carlie_base.launch* also publishes the following static transforms:
 - imu to base_link - for the onboard Razor IMU
 - gps_link to base_link - for the onboard GPS
+
+To reset the odometry open up a terminal and execute `rostopic pub --once /carlie/odom/reset std_msgs/Empty`
 
 The figure below shows the nodes, topics and connections when the base layer ROS package, excluding the power monitor, and the micro-controller firmware are running.
 

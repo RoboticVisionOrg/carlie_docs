@@ -1,5 +1,5 @@
 ---
-sort: 4
+sort: 5
 ---
 
 # Running Existing Demos and Capabilities on Carlie
@@ -8,13 +8,12 @@ There exists several pre-existing demos and capabilities for Carlie, including:
 - [AR Tag Following Demo](#ar-tag-following-demo)
 - [HSV Blob Following Demo](#hsv-blob-following-demo)
 - [Vision-based Teach and Repeat](#vision-based-teach-and-repeat)
+- [LiDAR Mapping](#lidar-mapping)
 
 <!--
 - [LiDAR Mapping](https://github.com/RoboticVisionOrg/carlie_apps/tree/master/gmapping_app)
 - [LiDAR Localisation](https://github.com/RoboticVisionOrg/carlie_apps/tree/master/localisation_app) 
 -->
-
-Most of these can be found within the [carlie_apps](https://github.com/RoboticVisionOrg/carlie_apps) package.
 
 Most of these can be found within the [carlie_apps](https://github.com/RoboticVisionOrg/carlie_apps) package and are launchable via a web interface. To launch one of the existing capabilities via the web interface, if available, perform the following:
 
@@ -95,3 +94,20 @@ It is now time to run the repeat phase. Return Carlie to the starting position a
     roslaunch carlie_teach_and_repeat repeat.launch
 
 Now hold down the autonomous e-stop button (left bumper), but be ready to take your finger off at any moment. Also, stay close to Carlie that Gamepad only has a range of about 5-10m. Hopefully Carlie will autonomously navigate the route. The current example does have problem with tight corners, corners in general can be troublesome for teach and repeat.
+
+
+## LIDAR Mapping
+The LIDAR Mapping is a utility that can be used to create a occupancy grid map of your environment. This capability can be run via the command line or through the web interface. To run the utility via the command line first open up RVIZ, if you wish to be able to view the map,
+
+    rosrun rviz rviz
+
+Then launch the mapping utility, which uses the [ROS SLAM Toolbox](http://wiki.ros.org/slam_toolbox) under the hood,
+
+    roslaunch carlie_lidar_mapping_app lidar_mapping_app.launch
+
+Once you have finished building the map you can save it by executing
+
+    rosservice call /slam_toolbox/save_map "name: {data: 'maps/<map_name>'}"
+    rosservice call /slam_toolbox/serialize_map "maps/<map_name>"
+
+Maps will be saved to the path `~/.ros/maps/<map_name>`

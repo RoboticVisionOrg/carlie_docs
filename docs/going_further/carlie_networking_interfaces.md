@@ -8,7 +8,11 @@ The Carlie Platform has two ways in which you can connect to it via networking. 
 
 The onboard WiFi router creates both a 2.4 and 5G local WiFi network. Naturally this WiFi network does not have internet access. The onboard computer, the Jetson TX2, connects to this network/router via a wired ethernet connection. We left the router in the default state for you to setup, which will depend on your work environment. The default WiFi SSID will be of the form *GL-AR750S-xxx* and the Password is *goodlife*.
 
-You may find that the platform does not have internet access when connected to your local WiFi. This is because the TX2 has a wired ethernet connection to the onboard router which will act as the default gateway and which does not have internet access. To overcome this you may wish to disable the ethernet as the default gateway.
+You may find that the platform does not have internet access when connected to your local WiFi. This is because the TX2 has a wired ethernet connection to the onboard router which will act as the default gateway and which does not have internet access. To overcome this you may wish to disable the ethernet as the default gateway. 
 
-1. Gavin insert instructions
-2. blah
+1. Open up Network Settings
+2. Open up the settings for the SSID for the onboard router
+3. Go to the IPv4 settings and click on Routes
+4. Make sure the checkbox for `Use this connection only for resources on its network` is checked
+
+Or you can physically disconnect the onboard router if it is not been used.

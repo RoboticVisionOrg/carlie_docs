@@ -3,7 +3,6 @@ sort: 5
 ---
 
 # Developing For Carlie
-
 This page is for those who wish to add features into the official Carlie software stack, or those wishing to fix any issues. We also provide details on how to add your Carlie Application to the official [Carlie Apps](https://github.com/RoboticVisionOrg/carlie_apps) package, and the procedure used for packaging and distributing the official Carlie debians.
 
 The current Carlie software stack consists of four primary ROS packages, these are:
@@ -15,18 +14,21 @@ The current Carlie software stack consists of four primary ROS packages, these a
 
 The methodology for providing feature updates or bug fixes is dependent on the core Carlie package you wish to alter. We provide updating methodologies for each core Carlie package below. Once you have altered a core Carlie package and tested them make a pull request.
 
-## Updating Carlie Messsages
+## Reporting Issues
+If you have problems with installing or running any of the Carlie softare please report an issue using Github's Issues within the appropriate package. For example, if the problem is in *carlie_base* please report at [Carlie Base Package Issues](https://github.com/RoboticVisionOrg/carlie_base/issues). If you are unsure which package is causing the issue please report the issue at [Carlie Package Issues](https://github.com/RoboticVisionOrg/carlie/issues).
+
+If you do find and issue and have a software patch, or if you have developed a feature(s) that you wish to include in the carlie packages, please check out the [Developer Section](../going_further/developing_for_carlie) on how to do this.
+
+## Updating Carlie Messages
 If you wish to add in a new Carlie custom message or alter an existing on please follow this procedure below. Please note if you alter the *CarlieConfig.msg*, *CarlieRawOdom.msg*, *CarlieRawMotionData.msg*, *CarlieRawProximityData.msg* or *CarlieStatus.msg* you will need to make changes to the Carlie Hardware and Carlie Base packages. 
 
-1. Git clone the carlie_messages package into the `src` folder of your ROS catkin workspace, `cd <catkin_ws>/src/ && git clone https://github.com/RoboticVisionOrg/carlie_msgs.git`
-2. Run catkin_make on your ROS catkin worskpace, `cd <catkin_ws> && catkin_make`
-3. Run `rospack profile` to ensure ROS will default to the newly cloned repository and not the carlie_msgs package within `/opt/ros/<distro>/`
-3. Navigate back to the git repo `cd <catkin_ws>/src/carlie_msgs` 
-4. Create and checkout a new branch with an appropriate name `git checkout -b <branch_name>`
-5. Make your changes and run catkin_make on your ROS catkin workspace to make sure your changes build correctly
-6. Update the carlie_hw and carlie_base packages, if required
-7. Test your changes
-8. Once tested successfully submit a pull request 
+1. Git clone the carlie_msgs package into the `src` folder of your ROS catkin workspace, `cd <catkin_ws>/src/ && git clone https://github.com/RoboticVisionOrg/carlie_msgs.git`
+2. Create and checkout a new branch with an appropriate name `git checkout -b <branch_name>`
+3. Make your changes and run catkin_make on your ROS catkin workspace to make sure your changes build correctly, `cd <catkin_ws> && catkin_make`
+4. Run `rospack profile` to ensure ROS will default to the newly cloned repository and not the carlie_msgs package within `/opt/ros/<distro>/`
+5. Update the carlie_hw and carlie_base packages, if required
+6. Test your changes
+7. Once successfully tested submit a pull request 
 
 
 ## Updating Carlie Hardware
@@ -39,7 +41,7 @@ You will need to have the [Arduino IDE](https://www.arduino.cc/en/software) inst
 To start you will need to clone the carlie_hw repository to a suitable location.
 
 1. Git clone the carlie_hw package into any location on your computer, `cd <desired_location> && git clone https://github.com/RoboticVisionOrg/carlie_hw.git`
-2. Navigate back to the newly cloned carlie_hw git repo `cd <path>/carlie_hw` 
+2. Navigate into the newly cloned carlie_hw git repo `cd <path>/carlie_hw` 
 3. Create and checkout a new branch with an appropriate name `git checkout -b <branch_name>`
 
 Navigate into the cloned carlie_hw package and run the `ArduinoLibrarySymlinkSetup.sh` script. This will create a symbolic link between the folders located in `<path>/carlie_hw/src/libraries` within `~/Arduino/libraries/` folder. This is required so the Arduino IDE can find the carlie, sc_servo and vesc_uart source files. 
@@ -56,9 +58,9 @@ Modify the carlie, sc_servo or vesc_uart library source files and recompile the 
 1. Opening up the appropriate source file in your favourite editor and making the required changes
 2. Open up `<path>/carlie_hw/src/firmware/firmware.ino` or `<path>/carlie_hw/src/calibration/calibration.ino` file in the Arduino IDE
 3. Press the verify button, top left button that is a tick symbol, to compile the software. Fix any errors that occur during compilation
-4. Once compilation is completed successfully, upload the new software to the micro-controller and test the changes. This may require making changes to carlie_base ROS package.
+4. Once compilation has completed successfully, upload the new software to the micro-controller and test the changes. This may require making changes to the carlie_base ROS package.
 
-Once the compiled software has been successfully tested you will need to copy the compiled hex file into the release folder. To do this follow these steps:
+Once the compiled software has been successfully tested, you will need to copy the compiled hex file into the release folder. To do this follow these steps:
 
 1. Open up the `firmware.ino` or `calibration.ino` file in the Arduino IDE and compile the software.
 2. In the compile log output search for the line that includes `"../tools/teensy_post_comile" ... "-path=/tmp/arduino_build_<number>" ...`, example shown in the figure below. We will use the path portion in the next step.
@@ -74,12 +76,12 @@ Once the compiled software has been successfully tested you will need to copy th
 Altering the Carlie Base package is typically straight forward, however if you alter the *config_node*, *driver_node* or *power_monitor_node* you may need to update the micro-controller firmware.
 
 1. Git clone the carlie_base package into the `src` folder of your ROS catkin workspace, `cd <catkin_ws>/src/ && git clone https://github.com/RoboticVisionOrg/carlie_base.git`
-2. Run catkin_make on your ROS catkin worskpace, `cd <catkin_ws> && catkin_make`
-3. Run `rospack profile` to ensure ROS will default to the newly cloned repository and not the carlie_base package within `/opt/ros/<distro>/`
-3. Navigate back to the git repo `cd <catkin_ws>/src/carlie_base` 
-4. Create and checkout a new branch with an appropriate name `git checkout -b <branch_name>`
-5. Make and test your changes
-6. Once tested successfully submit a pull request 
+2. Create and checkout a new branch with an appropriate name `git checkout -b <branch_name>`
+3. Run catkin_make on your ROS catkin worskpace, `cd <catkin_ws> && catkin_make`
+4. Run `rospack profile` to ensure ROS will default to the newly cloned repository and not the carlie_base package within `/opt/ros/<distro>/`
+5. Navigate back to the git repo `cd <catkin_ws>/src/carlie_base` 
+6. Make and test your changes
+7. Once tested successfully submit a pull request 
 
 ## Updating Carlie Sensors
 When altering the Carlie Sensors package please follow the procedure below.
@@ -115,7 +117,8 @@ Once you have copied your application into the carlie_apps directory and success
 
 Once you have tested your application successfully, by both command line launching and web interface launching if applicable, write a README.md with documentation explaining what your application does, how to run it and any requirements, for example additional sensors required or additional libraries that need to be installed. Once this documentation has been written submit a pull request.
 
-
+<!-- 
 ## Packaging Official Carlie Debians
 
 Gavin to provide information
+-->
