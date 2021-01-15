@@ -17,8 +17,6 @@ The methodology for providing feature updates or bug fixes is dependent on the c
 ## Reporting Issues
 If you have problems with installing or running any of the Carlie softare please report an issue using Github's Issues within the appropriate package. For example, if the problem is in *carlie_base* please report at [Carlie Base Package Issues](https://github.com/RoboticVisionOrg/carlie_base/issues). If you are unsure which package is causing the issue please report the issue at [Carlie Package Issues](https://github.com/RoboticVisionOrg/carlie/issues).
 
-If you do find and issue and have a software patch, or if you have developed a feature(s) that you wish to include in the carlie packages, please check out the [Developer Section](../going_further/developing_for_carlie) on how to do this.
-
 ## Updating Carlie Messages
 If you wish to add in a new Carlie custom message or alter an existing on please follow this procedure below. Please note if you alter the *CarlieConfig.msg*, *CarlieRawOdom.msg*, *CarlieRawMotionData.msg*, *CarlieRawProximityData.msg* or *CarlieStatus.msg* you will need to make changes to the Carlie Hardware and Carlie Base packages. 
 

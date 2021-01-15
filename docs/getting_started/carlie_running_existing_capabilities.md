@@ -23,18 +23,7 @@ Most of these can be found within the [carlie_apps](https://github.com/RoboticVi
 
 
 ## AR Tag Following Demo
-The AR Tag Following Demo allows Carlie to follow a AprilTag. This demo does require the AprilTag library and AprilTag ROS package to be installed. To install these package run the following steps (these steps only needs to be done once):
-
-1. Open up a terminal and navigate to your home directory `cd`
-2. Git clone the AprilTags library `git clone https://github.com/AprilRobotics/apriltag.git`
-3. Move into the newly cloned AprilTags folder `cd apriltag/`
-4. Run cmake on the AprilTags folder `cmake .` and then install `sudo make install`
-5. Navigate to the src directory within your ROS catkin_ws, most likely `~/catkin_ws/src`
-6. Git clone the AprilTags ROS package `git clone https://github.com/AprilRobotics/apriltag_ros.git`
-7. Navigate to the main ROS catkin_ws directory `cd ~/catkin_ws` and run catkin_make `catkin_make`
-8. If there are no compile errors you should be able to run the AR Tag Following Demo
-
-To run the AR Tag Following Demo you will require an AR Tag from the 36h11 with an ID of 5. The edge of the tag should be 0.161 metres, however it is fine if this is not the case. This demo can be run through the web interface or via the command line. To run the demo via the command line execute the following within a terminal (if you are SSH'ed into Carlie make sure you have an X server running):
+The AR Tag Following Demo allows Carlie to follow a AprilTag. This demo utilises the [AprilTag ROS](https://wiki.ros.org/apriltag_ros) package. To run the AR Tag Following Demo you will require an AR Tag from the 36h11 with an ID of 5 ([PDF here](assets/apriltag_36h11_5.pdf)). The edge of the tag should be 0.161 metres, however it is fine if this is not the case. This demo can be run through the web interface or via the command line. To run the demo via the command line execute the following within a terminal (if you are SSH'ed into Carlie make sure you have an X server running):
 
     roslaunch carlie_ar_tag_following_demo demo.launch image_view_on:=true
 
@@ -97,15 +86,16 @@ Now hold down the autonomous e-stop button (left bumper), but be ready to take y
 
 
 ## LIDAR Mapping
-The LIDAR Mapping is a utility that can be used to create a occupancy grid map of your environment. This capability can be run via the command line or through the web interface. To run the utility via the command line first open up RVIZ, if you wish to be able to view the map,
+
+The LIDAR Mapping is a utility that can be used to create a occupancy grid map of your environment. This application utilises the [ROS SLAM Toolbox](http://wiki.ros.org/slam_toolbox). This capability can be run via the command line or through the web interface. To run the utility via the command line first open up RVIZ, if you wish to be able to view the map,
 
     rosrun rviz rviz
 
-Then launch the mapping utility, which uses the [ROS SLAM Toolbox](http://wiki.ros.org/slam_toolbox) under the hood,
+Then, in another terminal, launch the mapping utility,
 
     roslaunch carlie_lidar_mapping_app lidar_mapping_app.launch
 
-Once you have finished building the map you can save it by executing
+Once you have finished building the map you can save it by executing in another terminal
 
     rosservice call /slam_toolbox/save_map "name: {data: 'maps/<map_name>'}"
     rosservice call /slam_toolbox/serialize_map "maps/<map_name>"
